@@ -1,6 +1,6 @@
 let gameSeq = [];
 let userSeq = [];
-let btns = ["yellow", "grey", "purlple", "red"];
+let btns = ["yellow", "grey", "purple", "red"];
 
 let started = false;
 let level = 0;
@@ -36,7 +36,7 @@ function levelUp() {
         highscore = level;
     }
     h2.innerText = `Level ${level}`;
-    let randIdx = Math.floor(Math.random() * 3);
+    let randIdx = Math.floor(Math.random() * 4);
     let randColor = btns[randIdx];
     let randBtn = document.querySelector(`.${randColor}`);
     gameSeq.push(randColor);
@@ -64,14 +64,14 @@ function btnPress() {
     let btn = this;     
     userFlash(btn);
     
-    userColor = btn.getAttribute("id");
+    let userColor = btn.getAttribute("id");
     userSeq.push(userColor);
 
     checkAns(userSeq.length - 1);
 }
 
 let allBtns = document.querySelectorAll(".btn");
-for (btn of allBtns) {
+for (let btn of allBtns) {
     btn.addEventListener("click", btnPress);
 }
 
